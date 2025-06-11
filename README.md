@@ -29,6 +29,7 @@ The raw data are processed with the following steps:<br>
 1. Raw data, images gathered from Google Map and Google Streetview, are collected and stored in data/raw folder, with subfolder for each station images (average of approx 100 photos per station)
 2. Remove corrupted images, duplicates, and rename images, then save them in the data/processed_before_roboflow folder (Folder excluded from the repo to save space)
 3. Upload the dataset to Roboflow, annotate the images, draw bounding boxes manually, and then export the dataset in YOLO format.
+The dataset is published on Roboflow: https://universe.roboflow.com/bangkok-green-line-skytrain-dl-project/bangkok-green-line-skytrain-signage-detection
 4. Split the dataset into training, validation, and test sets, then save them in the data/outputs folder. This set will be used for YOLOv8
 5. Crop the images with ground truth bounding boxes, in the training, validation, and test sets to create a new dataset with only the metro station signages. This is for the SVC model.
 6. Build HOG features and labels for the SVC model
