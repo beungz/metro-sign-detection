@@ -1,0 +1,6 @@
+**/data/*
+**/scripts/*.pyc
+**/__pycache__/*
+**/*.ipynb
+**/*.pkl
+.git/
