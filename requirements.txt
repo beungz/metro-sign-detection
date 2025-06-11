@@ -1,0 +1,11 @@
+numpy==1.26.4
+ultralytics==8.3.150
+scikit-learn==1.0.2
+scikit-image==0.25.2
+opencv-python-headless==4.11.0.86
+Pillow==11.2.1
+joblib==1.5.1
+streamlit==1.45.1
+PyYAML==6.0.2
+imgaug==0.4.0
+matplotlib==3.8.4
