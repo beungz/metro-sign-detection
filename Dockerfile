@@ -6,25 +6,27 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Create working directory
 WORKDIR /app
 
-# Copy requirements. From source, to destination.
 # Install system-level dependencies for OpenCV and Ultralytics
 RUN apt-get update && apt-get install -y \
+    gcc \
     libgl1-mesa-glx \
     libglib2.0-0 \
-    libsm6 \
-    libxrender1 \
-    libxext6 \
     && rm -rf /var/lib/apt/lists/*
-COPY requirements.txt ./requirements.txt
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy requirements and install dependencies
+COPY requirements.txt ./requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Selectively copy only inference code
+COPY main.py ./main.py
+COPY scripts/ ./scripts/
+COPY models/deep_learning/ ./models/deep_learning/
+# Create an empty folder "data"
+RUN mkdir -p data
 
 # Expose port
 EXPOSE 8080
-
-# copying all files over. From source, to destination.
-COPY . /app
 
 #Run app
 CMD ["streamlit", "run", "main.py", "--server.port=8080", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]
