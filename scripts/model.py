@@ -8,10 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import joblib
 import shutil
 from scripts.build_features import extract_hog_feature
-from sklearn.preprocessing import StandardScaler
-
 from collections import Counter
-import yaml
 
 
 
